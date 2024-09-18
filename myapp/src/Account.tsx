@@ -1,15 +1,12 @@
 import axios from 'axios'
 import React from 'react'
+import authFetch from './axiosbase/interseptor';
 
 export default function Account() {
 
-    let p = localStorage.getItem("token")
+    
 
-    axios.get("http://localhost:4000/accounts",{
-        headers: {
-            'Authorization' : `Bearer ${p}`
-        }
-    }).then(y=>{
+    authFetch.get("accounts").then(y=>{
         console.table(y.data);
     })
   return (

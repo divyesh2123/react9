@@ -22,6 +22,8 @@ export default function Login() {
         .then(y=>{
 
             localStorage.setItem("token",y.data.jwtToken);
+          
+        }).then(y=>{
             nav("/Account");
 
         }).catch(y=>{
