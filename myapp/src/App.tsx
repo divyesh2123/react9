@@ -1,33 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { StrictMode, useState } from 'react'
+import { createRoot } from 'react-dom/client'
+
+import { Home } from './Home.tsx'
+import { Product } from './Product.tsx'
+import Login from './Login.tsx'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HomeNew } from './HomeNew.tsx'
+import Registration from './Registration.tsx'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import Account from './Account.tsx'
+import FormikWithMUI from './FormikWithMUI.tsx';
+import Post from './Post.tsx'
+import ReadMore from './ReadMore.tsx'
+import Parent from './Paret.tsx'
+import Pat from './Pat.tsx'
+import { ILanguage, TodoContext } from './language/Language.tsx'
+import Header from './Header.tsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [lan, setlan] = useState<ILanguage>({lan:"en"})
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <TodoContext.Provider value={{lan,setlan}}>
+      <Header/>
+    <Routes>
+
+<Route path='/' element={<Login></Login>}/>
+<Route path='/registration' element={<Registration></Registration>}/>
+<Route path='/home' element={<HomeNew></HomeNew>}/>
+<Route path='/Account' element={<Account></Account>}/>
+<Route path='/formikwithMUI' element={<FormikWithMUI></FormikWithMUI>}/>
+<Route path='/Post' element={<Post></Post>}/>
+<Route path='/readmore' element={<ReadMore props='this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript'></ReadMore>}/>
+<Route path='/Parent' element={<Parent></Parent>}/>
+<Route path='/Pat' element={<Pat></Pat>}/>
+</Routes>
+
+    </TodoContext.Provider>
   )
 }
 

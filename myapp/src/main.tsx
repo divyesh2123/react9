@@ -14,25 +14,13 @@ import FormikWithMUI from './FormikWithMUI.tsx';
 import Post from './Post.tsx'
 import ReadMore from './ReadMore.tsx'
 import Parent from './Paret.tsx'
+import Pat from './Pat.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
      <ToastContainer />
     <BrowserRouter>
-
-    <Routes>
-
-      <Route path='/' element={<Login></Login>}/>
-      <Route path='/registration' element={<Registration></Registration>}/>
-      <Route path='/home' element={<HomeNew></HomeNew>}/>
-      <Route path='/Account' element={<Account></Account>}/>
-      <Route path='/formikwithMUI' element={<FormikWithMUI></FormikWithMUI>}/>
-      <Route path='/Post' element={<Post></Post>}/>
-      <Route path='/readmore' element={<ReadMore props='this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript'></ReadMore>}/>
-      <Route path='/Parent' element={<Parent></Parent>}/>
-   
-    </Routes>
-
+      <App/>
     </BrowserRouter>
     
   </StrictMode>,

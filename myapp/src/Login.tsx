@@ -1,9 +1,38 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useContext, useState } from 'react';
 import { FormControl, Grid, Input, InputLabel, Button } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { ILanguageContext, TodoContext } from './language/Language';
+
+interface Translations<T> {
+    [key: string]: T;
+}
+
+export interface LanguageTranslations<T> {
+    en: Translations<T>;
+    fr: Translations<T>;
+}
+
 
 export default function Login() {
+
+    const p = useContext<ILanguageContext|null>(TodoContext);
+
+    alert(p?.lan.lan);
+
+    const obj  : LanguageTranslations<any> = {
+
+            "en" : {
+                "Email": "Email",
+                "Password": "Password"
+
+            },
+            "fr" : {
+                "Email": "E-mail",
+                "Password": "Mot de passe"
+
+            }
+    }
 
    const nav = useNavigate();
     const [data, setData] = useState({
@@ -37,7 +66,7 @@ export default function Login() {
             <Grid container spacing={2}>
                 <Grid item xs={8}>
                     <FormControl fullWidth variant="standard">
-                        <InputLabel htmlFor="email">Email</InputLabel>
+                        <InputLabel htmlFor="email">{obj[p?.lan.lan == "en"? "en": "fr"].Email}</InputLabel>
                         <Input
                             name='email'
                             type='email'
@@ -48,7 +77,7 @@ export default function Login() {
 
                 <Grid item xs={8}>
                     <FormControl fullWidth variant="standard">
-                        <InputLabel htmlFor="password">Password</InputLabel>
+                        <InputLabel htmlFor="password">{obj[p?.lan.lan == "en"? "en": "fr"].Password} </InputLabel>
                         <Input
                             name='password'
                             type='password'
