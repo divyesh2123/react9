@@ -18,7 +18,7 @@ export default function Login() {
 
     const p = useContext<ILanguageContext|null>(TodoContext);
 
-    alert(p?.lan.lan);
+   
 
     const obj  : LanguageTranslations<any> = {
 

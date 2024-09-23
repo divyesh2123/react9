@@ -7,8 +7,8 @@ export default function Header() {
     const p = useContext<ILanguageContext|null>(TodoContext);
 
     const handleChange = (e:any)=>{
-      alert(e.target.value);
-        p?.setlan(e.target.value)
+    
+        p?.setlan({...p.lan,lan:e.target.value});
     }
   return (
     <div>

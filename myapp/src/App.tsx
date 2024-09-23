@@ -17,6 +17,7 @@ import Parent from './Paret.tsx'
 import Pat from './Pat.tsx'
 import { ILanguage, TodoContext } from './language/Language.tsx'
 import Header from './Header.tsx'
+import MyCrud from './MyCrud.tsx'
 
 function App() {
   const [lan, setlan] = useState<ILanguage>({lan:"en"})
@@ -35,6 +36,7 @@ function App() {
 <Route path='/readmore' element={<ReadMore props='this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript this is the javascript'></ReadMore>}/>
 <Route path='/Parent' element={<Parent></Parent>}/>
 <Route path='/Pat' element={<Pat></Pat>}/>
+<Route path='/crud' element={<MyCrud></MyCrud>}/>
 </Routes>
 
     </TodoContext.Provider>
