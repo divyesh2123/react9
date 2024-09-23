@@ -18,6 +18,8 @@ import Pat from './Pat.tsx'
 import { ILanguage, TodoContext } from './language/Language.tsx'
 import Header from './Header.tsx'
 import MyCrud from './MyCrud.tsx'
+import MyInfo from './MyInfo.tsx'
+import MyInfoComments from './MyInfoComments.tsx'
 
 function App() {
   const [lan, setlan] = useState<ILanguage>({lan:"en"})
@@ -37,6 +39,8 @@ function App() {
 <Route path='/Parent' element={<Parent></Parent>}/>
 <Route path='/Pat' element={<Pat></Pat>}/>
 <Route path='/crud' element={<MyCrud></MyCrud>}/>
+<Route path='/myInfo' element={<MyInfo></MyInfo>}/>
+<Route path='/myinfodata' element={<MyInfoComments></MyInfoComments>}/>
 </Routes>
 
     </TodoContext.Provider>
