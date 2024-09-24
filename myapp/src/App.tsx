@@ -20,6 +20,7 @@ import Header from './Header.tsx'
 import MyCrud from './MyCrud.tsx'
 import MyInfo from './MyInfo.tsx'
 import MyInfoComments from './MyInfoComments.tsx'
+import ParetMain from './ParetMain.tsx'
 
 function App() {
   const [lan, setlan] = useState<ILanguage>({lan:"en"})
@@ -41,6 +42,7 @@ function App() {
 <Route path='/crud' element={<MyCrud></MyCrud>}/>
 <Route path='/myInfo' element={<MyInfo></MyInfo>}/>
 <Route path='/myinfodata' element={<MyInfoComments></MyInfoComments>}/>
+<Route path='/parentmain' element={<ParetMain></ParetMain>}/>
 </Routes>
 
     </TodoContext.Provider>
