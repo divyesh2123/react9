@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -11,9 +11,31 @@ interface IFormChildPage
 {
   open: boolean,
   handleClose: Function
+  setarr: Function
+  arr: any[]
+  id: number
+  setId:Function
 }
 
 export default function FormChild(props : IFormChildPage) {
+
+  useEffect(()=>
+  {
+    if(props.id>0)
+    {
+      let p = props.arr.find((v:any)=>{
+
+        return v.id == props.id;
+      });
+      setData({...p});
+    }
+    else
+    {
+      setData({firstName:"",lastName:""})
+    }
+
+
+  },[props.id,props.open]);
 
   const [data,setData]= useState({
     firstName : "",
@@ -27,7 +49,26 @@ export default function FormChild(props : IFormChildPage) {
 
   const saveInfo= ()=>{
 
-    console.log(data);
+    let p = [...props.arr];
+
+    if(props.id <=0)
+    {
+      p.push({...data,id:props.arr.length+1});
+
+    }
+    else
+    {
+      let u = p.find((v:any)=>{
+
+        return v.id == props.id;
+      })
+      u.firstName = data.firstName;
+      u.lastName = data.lastName
+    }
+   
+    props.setarr(p);
+    props.setId(-1);
+    
     props.handleClose();
   }
   return (
@@ -51,6 +92,7 @@ export default function FormChild(props : IFormChildPage) {
         type="text"
         fullWidth
         variant="standard"
+        value={data.firstName}
         onChange={hanleChange}
       />
 
@@ -64,6 +106,7 @@ export default function FormChild(props : IFormChildPage) {
         type="text"
         fullWidth
         variant="standard"
+        value={data.lastName}
         onChange={hanleChange}
       />
     </DialogContent>
