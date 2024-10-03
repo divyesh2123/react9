@@ -15,7 +15,7 @@ export const Home = () => {
 
     {
         data.map((v:IEmployee)=>{
-            return(<div>{v.Id} {v.Name}  </div>)
+            return(<div key={v.Id}>{v.Id} {v.Name}  </div>)
         })
     }
     

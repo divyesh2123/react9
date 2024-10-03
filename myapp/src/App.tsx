@@ -21,6 +21,7 @@ import MyCrud from './MyCrud.tsx'
 import MyInfo from './MyInfo.tsx'
 import MyInfoComments from './MyInfoComments.tsx'
 import ParetMain from './ParetMain.tsx'
+import UncontrolledForm from './UncontrolledForm.tsx'
 
 function App() {
   const [lan, setlan] = useState<ILanguage>({lan:"en"})
@@ -43,6 +44,7 @@ function App() {
 <Route path='/myInfo' element={<MyInfo></MyInfo>}/>
 <Route path='/myinfodata' element={<MyInfoComments></MyInfoComments>}/>
 <Route path='/parentmain' element={<ParetMain></ParetMain>}/>
+<Route path='/UncontrolledForm' element={<UncontrolledForm></UncontrolledForm>}/>
 </Routes>
 
     </TodoContext.Provider>
