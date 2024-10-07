@@ -15,13 +15,17 @@ import Post from './Post.tsx'
 import ReadMore from './ReadMore.tsx'
 import Parent from './Paret.tsx'
 import Pat from './Pat.tsx'
+import { Provider } from 'react-redux'
+import store from './store/store.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+
+    <Provider store={store}>
      <ToastContainer />
     <BrowserRouter>
       <App/>
     </BrowserRouter>
-    
+    </Provider>
   </StrictMode>,
 )

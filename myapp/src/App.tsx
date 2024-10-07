@@ -22,6 +22,8 @@ import MyInfo from './MyInfo.tsx'
 import MyInfoComments from './MyInfoComments.tsx'
 import ParetMain from './ParetMain.tsx'
 import UncontrolledForm from './UncontrolledForm.tsx'
+import Counter from './Counter.tsx'
+import User from './User.tsx'
 
 function App() {
   const [lan, setlan] = useState<ILanguage>({lan:"en"})
@@ -45,6 +47,8 @@ function App() {
 <Route path='/myinfodata' element={<MyInfoComments></MyInfoComments>}/>
 <Route path='/parentmain' element={<ParetMain></ParetMain>}/>
 <Route path='/UncontrolledForm' element={<UncontrolledForm></UncontrolledForm>}/>
+<Route path='/counter' element={<Counter></Counter>}/>
+<Route path='/userin' element={<User></User>}/>
 </Routes>
 
     </TodoContext.Provider>
