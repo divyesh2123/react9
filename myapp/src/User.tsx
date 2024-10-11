@@ -19,6 +19,9 @@ export default function User() {
     },[])
 
   return (
+    <React.Fragment>
+    <div></div>
     <div>User</div>
+    </React.Fragment>
   )
 }

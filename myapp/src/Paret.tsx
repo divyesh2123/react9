@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Child from './Child';
+import ChildNew from './ChildNew';
 
 export default function Parent() {
 
@@ -11,9 +12,9 @@ export default function Parent() {
     setInput(e.target.value)
   }
 
-  const removeItem = ()=>{
+  const removeItem = React.useCallback(()=>{
 
-  }
+  },[data]) 
 
   const handleButton = ()=>{
 
@@ -25,7 +26,7 @@ export default function Parent() {
     <div>
         <input type='text' onChange={handleChange}/>
         <button onClick={handleButton}>save</button>
-        <Child d={data} removeItem={removeItem}/>
+        <ChildNew d={data} removeItem={removeItem}/>
 
     </div>
   )

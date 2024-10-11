@@ -17,6 +17,7 @@ import Parent from './Paret.tsx'
 import Pat from './Pat.tsx'
 import { Provider } from 'react-redux'
 import store from './store/store.tsx'
+import Pagination from './Pagination.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
